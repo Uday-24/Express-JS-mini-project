@@ -1,0 +1,6 @@
+express
+ejs
+mongoose
+jsonwebtoken
+bcrypt
+cookie-parser
