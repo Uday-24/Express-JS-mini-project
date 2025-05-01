@@ -127,37 +127,11 @@
 <body>
 
     <div class="container">
-
-        <a href="/logout">
-            <button class="logout-btn">Logout</button>
-        </a>
-
-        <div class="hello">
-            Hello, <span id="username"><%= user.name %></span>!
-        </div>
-
-        <form action="/post" method="post">
-            <textarea name="content" placeholder="Write something..."></textarea>
+        <form action="/edit/<%= post.id %>" method="post">
+            <textarea name="content" placeholder="Write something..."> <%= post.content %> </textarea>
             <br>
             <button type="submit">Submit</button>
         </form>
-
-        <div class="posts">
-            <h3>Your Posts</h3>
-
-            <% user.posts.reverse().forEach((post)=>{ %>
-                <div class="post">
-                    <p><%= post.content %></p>
-                    <small><%= post.likes.length %> Likes</small>
-                    <div class="buttons">
-                        <a href="/like/<%= post._id %>" class="like-btn">
-                            <%= post.likes.indexOf(user.id) === -1 ? "Like" : "Unlike" %>
-                        </a>
-                        <a href="/edit/<%= post._id %>" class="edit-btn">Edit</a>
-                    </div>
-                </div>
-            <% }) %>
-        </div>
     </div>
 </body>
 
